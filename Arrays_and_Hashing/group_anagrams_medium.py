@@ -2,6 +2,16 @@
 An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once."""
 
 
-class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        pass
+def groupAnagrams(strs):
+    
+    d = {}
+    for s in strs:
+        key = "".join(sorted(s))
+        if key not in d:
+            d[key] = [s]
+        else:
+            d[key].append(s)
+
+    return list(d.values())
+
+print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
